@@ -40,6 +40,7 @@ The dashboard is generated at `docs/mdm_operations.html`; the audit pack is gene
 - `docs/PRODUCT.md` — product vision, users, roadmap, prioritisation and exclusions.
 - `docs/ENTITY_MDM.md` — matching, survivorship and stewardship.
 - `docs/MDM_OPERATIONS.md` — operations, quality, glossary, scorecards, audit and limitations.
+- `docs/ARCHITECTURE.md` — code-grounded Mermaid views of implemented flows, controls, lineage and synthetic operating model.
 
 ## Boundaries
 
