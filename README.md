@@ -12,6 +12,43 @@
 - Synthetic service operations, multi-hub role coverage, handoffs, continuity scenarios and improvement backlog.
 - An audit-support evidence pack and deterministic exception triage with prefilled evidence.
 
+**Conceptual flow; the prototype implements each step separately.**
+
+```mermaid
+flowchart LR
+  classDef systemStep fill:#e8f1fb,stroke:#275d8c,color:#102a43
+  classDef humanDecision fill:#fff2cc,stroke:#9a6700,color:#402b00
+  classDef control fill:#fce8e6,stroke:#b3261e,color:#3c1412
+  classDef output fill:#e6f4ea,stroke:#188038,color:#12351c
+
+  sources["Synthetic source records"]:::systemStep
+  intake["Intake and staging<br/>preserve source values and evidence"]:::systemStep
+  dq["Data-quality checks<br/>completeness · validity · key conflicts<br/>hierarchy · SQL failing-row queries"]:::control
+  match["Entity identity assessment<br/>registration key · type · jurisdiction<br/>name similarity can only prompt review"]:::systemStep
+  queue["Steward queue<br/>investigate exceptions and record rationale"]:::humanDecision
+  approval["Maker-checker approval<br/>independent reviewer; conflicts block merge"]:::control
+  golden["Golden-record preview<br/>selected values retain source provenance"]:::output
+  product["Governed data-product example<br/>CDEs · lineage metadata · versioned contract"]:::output
+  access["Purpose-based access review<br/>approve · narrow · deny · pending"]:::humanDecision
+  consumers["Illustrative consumer use cases"]:::output
+  scorecard["Country and service scorecards"]:::output
+  audit["Audit-support evidence pack"]:::output
+  ready["Deterministic AI-readiness flag<br/>readiness signal only; no AI model"]:::output
+  note["Synthetic roles and data; illustrative"]:::output
+  l1["Legend: system step"]:::systemStep
+  l2["Legend: human decision"]:::humanDecision
+  l3["Legend: control"]:::control
+  l4["Legend: output"]:::output
+
+  sources --> intake
+  intake --> dq
+  intake --> match
+  dq -. "quality results inform readiness and scorecards" .-> scorecard
+  match --> queue --> approval --> golden --> product --> access --> consumers
+  dq -. "linked rule status" .-> ready
+  queue -. "exception and closure evidence" .-> audit
+```
+
 There is **no AI model**. The `AI-ready` label is a deterministic data-readiness flag: definition, complete lineage, named owner and passing linked rules. It is not a model feature. Manual-effort estimates and all targets/results are illustrative, not measured.
 
 ## Run locally

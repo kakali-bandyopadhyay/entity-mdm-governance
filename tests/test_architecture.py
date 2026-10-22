@@ -72,6 +72,11 @@ def test_mermaid_components_are_backed_by_code_or_scenario_data():
 def test_readme_links_architecture_document():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     assert "docs/ARCHITECTURE.md" in readme
+    assert "**Conceptual flow; the prototype implements each step separately.**" in readme
+    readme_diagrams = re.findall(r"```mermaid\s+(.*?)```", readme, flags=re.DOTALL)
+    architecture = DOC.read_text(encoding="utf-8")
+    architecture_diagrams = re.findall(r"```mermaid\s+(.*?)```", architecture, flags=re.DOTALL)
+    assert readme_diagrams == [architecture_diagrams[1]]
 
 
 def test_conceptual_business_flow_is_explicitly_not_a_runtime_pipeline():
