@@ -1,0 +1,13 @@
+{
+  "label": "Synthetic stewardship records; examples only.",
+  "merge_groups": [
+    {"id":"MG-001","master_id":"M-SYN-DE-1001","members":["R001","R002","R003","R004"],"status":"APPROVED","maker":"steward_maker (synthetic role)","checker":"steward_checker (synthetic role)","at":"2026-10-14T11:30:00Z","rationale":"Same synthetic registration key, entity type and jurisdiction; source variants reviewed."}
+  ],
+  "pair_reviews": [
+    {"pair":["R009","R010"],"status":"PENDING","owner":"Entity data steward (synthetic role)","reason":"Name similarity is high, but one source lacks the synthetic registration key."},
+    {"pair":["R007","R008"],"status":"ESCALATED","owner":"Entity data steward (synthetic role)","reason":"Same synthetic key appears with conflicting jurisdictions and legal forms; merge blocked pending source correction."}
+  ],
+  "field_reviews": [
+    {"master_id":"M-SYN-DE-1001","field":"parent_key","status":"OPEN","owner":"Entity data steward (synthetic role)","due":"2026-10-28","reason":"Registry and portfolio operations disagree on parent; survivorship rule proposes the portfolio-operations value but does not publish it."}
+  ]
+}

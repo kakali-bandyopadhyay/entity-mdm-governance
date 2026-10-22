@@ -1,0 +1,135 @@
+{
+  "label": "Synthetic business glossary; regulatory relevance tags are illustrative mappings only.",
+  "terms": [
+    {
+      "term": "Client risk rating",
+      "definition": "Illustrative risk category assigned to a synthetic wealth client under a documented assessment.",
+      "synonyms": [
+        "client_risk_rating"
+      ],
+      "owner_role": "Wealth risk data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-W-RISK"
+      ]
+    },
+    {
+      "term": "KYC review status",
+      "definition": "Current state of the synthetic client due-diligence review.",
+      "synonyms": [
+        "kyc_review_status"
+      ],
+      "owner_role": "KYC data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-W-KYC"
+      ]
+    },
+    {
+      "term": "Account booking country",
+      "definition": "Country in which the synthetic account is booked for operational reporting.",
+      "synonyms": [
+        "account_booking_country"
+      ],
+      "owner_role": "Wealth operations data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-W-BOOKING-COUNTRY"
+      ]
+    },
+    {
+      "term": "Account status and identifier",
+      "definition": "Synthetic account identity and lifecycle state used to distinguish and operate account records.",
+      "synonyms": [
+        "account_status_and_identifier"
+      ],
+      "owner_role": "Account data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-W-ACCOUNT-STATUS"
+      ]
+    },
+    {
+      "term": "Client hierarchy reference",
+      "definition": "Optional parent-client reference connecting a synthetic account relationship to a known synthetic client.",
+      "synonyms": [
+        "client_hierarchy_reference"
+      ],
+      "owner_role": "Client data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-W-HIERARCHY"
+      ]
+    },
+    {
+      "term": "Investment entity registration key",
+      "definition": "Synthetic identifier used to distinguish a legal entity within its issuing jurisdiction.",
+      "synonyms": [
+        "investment_entity_registration_key"
+      ],
+      "owner_role": "Investment data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-ENTITY-KEY"
+      ]
+    },
+    {
+      "term": "Legal entity name",
+      "definition": "Registered legal name for the entity, retaining source spelling and approved normalized search form separately.",
+      "synonyms": [
+        "legal_entity_name"
+      ],
+      "owner_role": "Investment data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-LEGAL-NAME"
+      ]
+    },
+    {
+      "term": "Legal entity type",
+      "definition": "Illustrative classification of an entity as a fund, issuer, manager or holding entity.",
+      "synonyms": [
+        "legal_entity_type"
+      ],
+      "owner_role": "Investment data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-ENTITY-TYPE"
+      ]
+    },
+    {
+      "term": "Legal jurisdiction",
+      "definition": "Two-letter jurisdiction code associated with the legal registration of the entity.",
+      "synonyms": [
+        "legal_jurisdiction"
+      ],
+      "owner_role": "Investment data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-JURISDICTION"
+      ]
+    },
+    {
+      "term": "Parent legal entity key",
+      "definition": "Registration key for the immediate legal parent, when a parent relationship is known and evidenced.",
+      "synonyms": [
+        "parent_legal_entity_key"
+      ],
+      "owner_role": "Investment data owner (synthetic role)",
+      "status": "approved",
+      "version": "1.0",
+      "cde_ids": [
+        "CDE-PARENT-KEY"
+      ]
+    }
+  ]
+}

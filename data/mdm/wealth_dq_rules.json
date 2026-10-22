@@ -1,0 +1,219 @@
+{
+  "label": "Synthetic wealth-domain checks. Thresholds and mappings are illustrative.",
+  "rules": [
+    {
+      "id": "DQ-W01",
+      "name": "Client risk rating completeness",
+      "kind": "completeness",
+      "field": "risk_rating",
+      "allowed_values": [],
+      "cde_id": "CDE-W-RISK",
+      "illustrative_threshold": 0.9,
+      "owner_role": "Wealth data quality lead (synthetic role)",
+      "status": "active",
+      "test_rows": {
+        "valid": [
+          {
+            "risk_rating": "SYN-VALID",
+            "duplicate": false,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          },
+          {
+            "risk_rating": "SYN-VALID",
+            "duplicate": false,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          }
+        ],
+        "invalid": [
+          {
+            "risk_rating": null,
+            "duplicate": true,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          },
+          {
+            "risk_rating": null,
+            "duplicate": true,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "DQ-W02",
+      "name": "KYC review status validity",
+      "kind": "validity",
+      "field": "kyc_status",
+      "allowed_values": [
+        "CURRENT",
+        "DUE",
+        "IN_PROGRESS",
+        "NOT_REQUIRED"
+      ],
+      "cde_id": "CDE-W-KYC",
+      "illustrative_threshold": 0.9,
+      "owner_role": "KYC data owner (synthetic role)",
+      "status": "active",
+      "test_rows": {
+        "valid": [
+          {
+            "kyc_status": "CURRENT",
+            "duplicate": false,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          },
+          {
+            "kyc_status": "CURRENT",
+            "duplicate": false,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          }
+        ],
+        "invalid": [
+          {
+            "kyc_status": "INVALID",
+            "duplicate": true,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          },
+          {
+            "kyc_status": "INVALID",
+            "duplicate": true,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "DQ-W03",
+      "name": "Account identifier uniqueness",
+      "kind": "uniqueness",
+      "field": "account_id",
+      "allowed_values": [],
+      "cde_id": "CDE-W-ACCOUNT-STATUS",
+      "illustrative_threshold": 1.0,
+      "owner_role": "Account data steward (synthetic role)",
+      "status": "active",
+      "test_rows": {
+        "valid": [
+          {
+            "account_id": "SYN-ACCOUNT-A"
+          },
+          {
+            "account_id": "SYN-ACCOUNT-B"
+          }
+        ],
+        "invalid": [
+          {
+            "account_id": "SYN-DUPLICATE"
+          },
+          {
+            "account_id": "SYN-DUPLICATE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DQ-W04",
+      "name": "Client hierarchy reference integrity",
+      "kind": "hierarchy",
+      "field": "parent_client_id",
+      "allowed_values": [],
+      "cde_id": "CDE-W-HIERARCHY",
+      "illustrative_threshold": 1.0,
+      "owner_role": "Client data owner (synthetic role)",
+      "status": "active",
+      "test_rows": {
+        "valid": [
+          {
+            "parent_client_id": "SYN-VALID",
+            "duplicate": false,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          },
+          {
+            "parent_client_id": "SYN-VALID",
+            "duplicate": false,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          }
+        ],
+        "invalid": [
+          {
+            "parent_client_id": "SYN-MISSING",
+            "duplicate": true,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          },
+          {
+            "parent_client_id": "SYN-MISSING",
+            "duplicate": true,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "DQ-W05",
+      "name": "Account booking country completeness",
+      "kind": "completeness",
+      "field": "booking_country",
+      "allowed_values": [],
+      "cde_id": "CDE-W-BOOKING-COUNTRY",
+      "illustrative_threshold": 1.0,
+      "owner_role": "Wealth operations owner (synthetic role)",
+      "status": "active",
+      "test_rows": {
+        "valid": [
+          {
+            "booking_country": "SYN-VALID",
+            "duplicate": false,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          },
+          {
+            "booking_country": "SYN-VALID",
+            "duplicate": false,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          }
+        ],
+        "invalid": [
+          {
+            "booking_country": null,
+            "duplicate": true,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          },
+          {
+            "booking_country": null,
+            "duplicate": true,
+            "known_clients": [
+              "SYN-VALID"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

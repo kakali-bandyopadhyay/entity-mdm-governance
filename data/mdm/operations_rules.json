@@ -1,0 +1,16 @@
+{
+  "label": "Synthetic service-operations scenario; illustrative thresholds, not firm SLAs.",
+  "as_of": "2026-10-21T12:00:00Z",
+  "cohort_start": "2026-10-01T00:00:00Z",
+  "backlog_age_threshold_calendar_days": 5,
+  "targets": {
+    "on_time_completion_rate": 0.9,
+    "first_pass_yield": 0.9
+  },
+  "metric_notes": {
+    "on_time_completion_rate": "Completed cases completed on or before their due_at timestamp divided by all completed cases in the cohort; calendar time, not staffed-business hours.",
+    "first_pass_yield": "Completed cases whose initial_validation is PASS divided by all completed cases in the cohort.",
+    "open_overdue": "Open cases with due_at earlier than the report as_of timestamp.",
+    "aged_backlog": "Open cases created more than the configured number of calendar days before as_of."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Illustrative product and engineering backlog derived from the synthetic work queue.",
+  "items": [
+    {"id":"IMP-01","title":"Validate mandatory identifiers before case creation","issue_code":"MISSING_IDENTIFIER","owner":"Product + source-integration lead (synthetic roles)","priority":"P1","change":"Add source-level required-field validation and return a structured correction request before the steward queue.","success_measure":"Track missing-identifier cases per 100 onboarding requests and first-pass yield before and after a separately measured release.","status":"PROPOSED"},
+    {"id":"IMP-02","title":"Add a hierarchy-conflict evidence panel","issue_code":"PARENT_KEY_CONFLICT","owner":"Product + MDM engineering lead (synthetic roles)","priority":"P1","change":"Show competing parent values, source lineage and effective dates together; require steward rationale and independent approval to resolve.","success_measure":"Track hierarchy exceptions by age, rework and downstream breaks; do not auto-select a parent from precedence alone.","status":"PROPOSED"},
+    {"id":"IMP-03","title":"Make cross-hub handoffs explicit","issue_code":null,"link_rule":"any_handoffs_recorded","owner":"MDM operations lead (synthetic role)","priority":"P2","change":"Require receiving owner, reason and next-action date at handoff; surface unaccepted handoffs in the daily queue review.","success_measure":"Track unaccepted handoffs and time between assignment and acceptance by workflow and hub.","status":"PROPOSED"}
+  ]
+}

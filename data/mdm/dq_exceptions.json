@@ -1,0 +1,187 @@
+{
+  "label": "Synthetic data-quality exception and audit records; illustrative evidence references.",
+  "exceptions": [
+    {
+      "id": "DQE-001",
+      "rule_id": "DQ-C01",
+      "case_id": "MDM-002",
+      "record_ids": [
+        "R009",
+        "R010"
+      ],
+      "status": "CLOSED",
+      "resolution_scope": "MASTER_RECORD",
+      "severity": "HIGH",
+      "owner": "Entity steward B (synthetic role)",
+      "opened_at": "2026-10-02T10:15:00Z",
+      "closed_at": "2026-10-08T10:00:00Z",
+      "root_cause": "Registration key absent from the deal-room copy of the issuer record.",
+      "remediation": "Used the corroborated registry key for the mastered record and raised a separate source-quality action; the raw deal-room row remains missing the key in this frozen source snapshot.",
+      "closure_evidence": "SYN-EVIDENCE-001: registry source record R009, source comparison and steward rationale",
+      "maker": "Entity steward B (synthetic role)",
+      "checker": "Data quality reviewer A (synthetic role)",
+      "events": [
+        {
+          "at": "2026-10-02T10:15:00Z",
+          "action": "OPENED",
+          "by": "Intake validation (synthetic control)"
+        },
+        {
+          "at": "2026-10-03T09:00:00Z",
+          "action": "SOURCE_CORRECTION_REQUESTED",
+          "by": "Entity steward B (synthetic role)"
+        },
+        {
+          "at": "2026-10-08T09:00:00Z",
+          "action": "TRUSTED_SOURCE_EVIDENCE_ATTACHED",
+          "by": "Source operations owner (synthetic role)"
+        },
+        {
+          "at": "2026-10-08T10:00:00Z",
+          "action": "MASTER_RECORD_CLOSED_AFTER_CHECKER_REVIEW",
+          "by": "Data quality reviewer A (synthetic role)"
+        }
+      ],
+      "due_at": "2026-11-05"
+    },
+    {
+      "id": "DQE-002",
+      "rule_id": "DQ-C04",
+      "case_id": "MDM-007",
+      "record_ids": [
+        "R001",
+        "R004"
+      ],
+      "status": "CLOSED",
+      "resolution_scope": "MASTER_RECORD",
+      "severity": "HIGH",
+      "owner": "Hierarchy steward (synthetic role)",
+      "opened_at": "2026-10-11T10:30:00Z",
+      "closed_at": "2026-10-18T09:00:00Z",
+      "root_cause": "Portfolio-operations parent key did not resolve to a registered synthetic parent.",
+      "remediation": "Retained the registry-supported parent on the master after source reconciliation; the conflicting source assertion remains visible for upstream correction.",
+      "closure_evidence": "SYN-EVIDENCE-002: source comparison, steward rationale and checker approval",
+      "maker": "Hierarchy steward (synthetic role)",
+      "checker": "Data quality reviewer B (synthetic role)",
+      "events": [
+        {
+          "at": "2026-10-11T10:30:00Z",
+          "action": "OPENED",
+          "by": "Hierarchy validation (synthetic control)"
+        },
+        {
+          "at": "2026-10-12T13:00:00Z",
+          "action": "SOURCE_RECONCILIATION_STARTED",
+          "by": "Hierarchy steward (synthetic role)"
+        },
+        {
+          "at": "2026-10-17T16:00:00Z",
+          "action": "RATIONALE_RECORDED",
+          "by": "Hierarchy steward (synthetic role)"
+        },
+        {
+          "at": "2026-10-18T09:00:00Z",
+          "action": "MASTER_RECORD_CLOSED_AFTER_CHECKER_REVIEW",
+          "by": "Data quality reviewer B (synthetic role)"
+        }
+      ],
+      "due_at": "2026-11-05"
+    },
+    {
+      "id": "DQE-003",
+      "rule_id": "DQ-C01",
+      "case_id": "MDM-009",
+      "record_ids": [
+        "R028"
+      ],
+      "status": "OPEN",
+      "severity": "HIGH",
+      "owner": "Entity steward C (synthetic role)",
+      "opened_at": "2026-10-17T09:10:00Z",
+      "closed_at": null,
+      "root_cause": "Required registration key not present in source file.",
+      "remediation": "Source correction requested; no master update permitted until evidence is received.",
+      "closure_evidence": null,
+      "maker": "Entity steward C (synthetic role)",
+      "checker": null,
+      "events": [
+        {
+          "at": "2026-10-17T09:10:00Z",
+          "action": "OPENED",
+          "by": "Intake validation (synthetic control)"
+        },
+        {
+          "at": "2026-10-17T10:00:00Z",
+          "action": "SOURCE_CORRECTION_REQUESTED",
+          "by": "Entity steward C (synthetic role)"
+        }
+      ],
+      "due_at": "2026-10-20"
+    },
+    {
+      "id": "DQE-004",
+      "rule_id": "DQ-C03",
+      "case_id": "MDM-013",
+      "record_ids": [
+        "R007",
+        "R008"
+      ],
+      "status": "ESCALATED",
+      "severity": "CRITICAL",
+      "owner": "MDM operations lead (synthetic role)",
+      "opened_at": "2026-10-19T11:10:00Z",
+      "closed_at": null,
+      "root_cause": "Same synthetic key appears with conflicting jurisdictions and legal forms.",
+      "remediation": "Block merge and request registry-source correction; retain both source records pending evidence.",
+      "closure_evidence": null,
+      "maker": "Entity steward A (synthetic role)",
+      "checker": null,
+      "events": [
+        {
+          "at": "2026-10-19T11:10:00Z",
+          "action": "OPENED_AND_MERGE_BLOCKED",
+          "by": "Identity consistency rule (synthetic control)"
+        },
+        {
+          "at": "2026-10-19T12:00:00Z",
+          "action": "ESCALATED_TO_OPERATIONS_LEAD",
+          "by": "Entity steward A (synthetic role)"
+        }
+      ],
+      "due_at": "2026-10-24"
+    },
+    {
+      "id": "DQE-005",
+      "rule_id": "DQ-C04",
+      "case_id": "MDM-011",
+      "record_ids": [
+        "R001",
+        "R004"
+      ],
+      "status": "OPEN",
+      "resolution_scope": "SOURCE_REMEDIATION",
+      "severity": "HIGH",
+      "owner": "Hierarchy steward (synthetic role)",
+      "opened_at": "2026-10-19T11:20:00Z",
+      "closed_at": null,
+      "root_cause": "Competing parent assertions require effective-date and ownership evidence.",
+      "remediation": "Correct the upstream source after source lineage and effective-date support are confirmed; route the proposed correction through independent review.",
+      "closure_evidence": null,
+      "maker": "Hierarchy steward (synthetic role)",
+      "checker": null,
+      "events": [
+        {
+          "at": "2026-10-19T11:20:00Z",
+          "action": "OPENED",
+          "by": "Hierarchy validation (synthetic control)"
+        },
+        {
+          "at": "2026-10-20T08:30:00Z",
+          "action": "EVIDENCE_REQUESTED",
+          "by": "Hierarchy steward (synthetic role)"
+        }
+      ],
+      "due_at": "2026-10-25"
+    }
+  ]
+}

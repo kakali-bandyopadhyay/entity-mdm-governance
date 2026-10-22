@@ -1,0 +1,145 @@
+{
+  "label": "Synthetic data-product catalogue and contract; illustrative only.",
+  "catalogue": {
+    "name": "Golden investment and wealth reference data (synthetic)",
+    "description": "Owner-governed reference attributes with lineage, DQ status and purpose-based access review.",
+    "owner_role": "Cross-domain data product owner (synthetic role)",
+    "domain": "Investment entity and wealth client reference data",
+    "tags": [
+      "synthetic",
+      "CDE",
+      "lineage",
+      "quality-status-tracked"
+    ]
+  },
+  "contract": {
+    "version": "1.0.0",
+    "refresh_cadence": "Daily snapshot in scenario; illustrative, not an operating commitment",
+    "change_policy": "Versioned schema and owner review; breaking changes require consumer notice and approval before release.",
+    "schema": [
+      {
+        "name": "entity_id",
+        "type": "string",
+        "cde_links": [
+          "CDE-ENTITY-KEY"
+        ]
+      },
+      {
+        "name": "legal_name",
+        "type": "string",
+        "cde_links": [
+          "CDE-LEGAL-NAME"
+        ]
+      },
+      {
+        "name": "client_risk_rating",
+        "type": "enum",
+        "cde_links": [
+          "CDE-W-RISK"
+        ]
+      },
+      {
+        "name": "kyc_review_status",
+        "type": "enum",
+        "cde_links": [
+          "CDE-W-KYC"
+        ]
+      },
+      {
+        "name": "booking_country",
+        "type": "string",
+        "cde_links": [
+          "CDE-W-BOOKING-COUNTRY"
+        ]
+      },
+      {
+        "name": "account_id",
+        "type": "string",
+        "cde_links": [
+          "CDE-W-ACCOUNT-STATUS"
+        ]
+      },
+      {
+        "name": "parent_client_id",
+        "type": "string|null",
+        "cde_links": [
+          "CDE-W-HIERARCHY"
+        ]
+      }
+    ],
+    "quality_slos": [
+      {
+        "rule_id": "DQ-W01",
+        "target": "≥ 90% completeness (illustrative)"
+      },
+      {
+        "rule_id": "DQ-W02",
+        "target": "≥ 90% allowed-value validity (illustrative)"
+      },
+      {
+        "rule_id": "DQ-W03",
+        "target": "100% unique account keys (illustrative)"
+      },
+      {
+        "rule_id": "DQ-W04",
+        "target": "100% valid hierarchy references (illustrative)"
+      },
+      {
+        "rule_id": "DQ-W05",
+        "target": "100% booking-country completeness (illustrative)"
+      }
+    ],
+    "lineage_reference": "CDE registry in data/mdm/cde_registry.json",
+    "access_policy": "Purpose limited; synthetic data-owner approval shown as an example and not enforced.",
+    "adoption_metrics": [
+      {
+        "id": "ADOPT-01",
+        "name": "Subscribers per product",
+        "numerator": 4,
+        "denominator": 1,
+        "value": 4,
+        "unit": "synthetic consumer teams / product",
+        "definition": "Distinct synthetic consumer teams with an approved or narrowed subscription to the product divided by the one published product.",
+        "source": "data/mdm/access_requests.json: approved and partially granted requests; illustrative subscriber count."
+      },
+      {
+        "id": "ADOPT-02",
+        "name": "Reuse across consuming use cases",
+        "numerator": 4,
+        "denominator": 1,
+        "value": 4,
+        "unit": "synthetic consuming use cases / product",
+        "definition": "Distinct synthetic use cases consuming one or more product fields divided by the one published product.",
+        "source": "data/mdm/data_products.json: illustrative adoption scenario."
+      },
+      {
+        "id": "ADOPT-03",
+        "name": "Time from publication to first consumption",
+        "numerator": 3,
+        "denominator": 1,
+        "value": 3,
+        "unit": "calendar days / product",
+        "definition": "Elapsed illustrative calendar days from publication to first synthetic consumption divided by one product publication.",
+        "source": "data/mdm/data_products.json: illustrative publication and first-consumption scenario; not observed.",
+        "publication_date": "2026-10-01",
+        "first_consumption_date": "2026-10-04"
+      }
+    ],
+    "adoption_scenario": {
+      "subscribed_consumer_teams": [
+        "Portfolio reporting",
+        "Client onboarding",
+        "Relationship analytics",
+        "General research"
+      ],
+      "consuming_use_cases": [
+        "country scorecard aggregation",
+        "client onboarding status review",
+        "synthetic household relationship view",
+        "data-quality research exploration"
+      ],
+      "publication_date": "2026-10-01",
+      "first_consumption_date": "2026-10-04"
+    }
+  }
+}

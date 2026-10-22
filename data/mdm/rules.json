@@ -1,0 +1,17 @@
+{
+  "label": "Illustrative prototype rules; not an approved MDM policy.",
+  "name_review_threshold": 0.88,
+  "same_key_name_floor": 0.60,
+  "legal_suffixes": ["gmbh", "limited", "ltd", "plc", "inc", "incorporated", "corporation", "corp", "llc", "sarl", "sas", "scsp", "lp", "limited partnership", "sa", "nv", "bv"],
+  "match_requires_steward_approval": true,
+  "two_person_approval": true,
+  "unresolved_conflict_fields": ["registration_key", "jurisdiction", "entity_type", "parent_key"],
+  "source_precedence": {
+    "entity_type": ["entity_registry", "fund_admin", "portfolio_ops", "deal_room"],
+    "legal_name": ["entity_registry", "fund_admin", "portfolio_ops", "deal_room"],
+    "jurisdiction": ["entity_registry", "fund_admin", "portfolio_ops", "deal_room"],
+    "registration_key": ["entity_registry", "fund_admin", "portfolio_ops", "deal_room"],
+    "parent_key": ["portfolio_ops", "entity_registry", "fund_admin", "deal_room"],
+    "status": ["entity_registry", "portfolio_ops", "fund_admin", "deal_room"]
+  }
+}

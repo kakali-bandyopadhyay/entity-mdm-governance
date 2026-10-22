@@ -1,0 +1,25 @@
+{
+  "label": "Synthetic, author-labelled demonstration pairs. Rules and examples were developed together; not independent validation.",
+  "pairs": [
+    {"id":"E01","left":"R001","right":"R002","expected":"MATCH"},
+    {"id":"E02","left":"R001","right":"R003","expected":"MATCH"},
+    {"id":"E03","left":"R001","right":"R004","expected":"MATCH"},
+    {"id":"E04","left":"R005","right":"R006","expected":"MATCH"},
+    {"id":"E05","left":"R015","right":"R016","expected":"MATCH"},
+    {"id":"E06","left":"R021","right":"R022","expected":"MATCH"},
+    {"id":"E07","left":"R025","right":"R026","expected":"MATCH"},
+    {"id":"E08","left":"R009","right":"R010","expected":"REVIEW"},
+    {"id":"E09","left":"R013","right":"R014","expected":"REVIEW"},
+    {"id":"E10","left":"R019","right":"R020","expected":"REVIEW"},
+    {"id":"E11","left":"R027","right":"R028","expected":"REVIEW"},
+    {"id":"E12","left":"R011","right":"R012","expected":"NO_MATCH"},
+    {"id":"E13","left":"R017","right":"R018","expected":"NO_MATCH"},
+    {"id":"E14","left":"R001","right":"R005","expected":"NO_MATCH"},
+    {"id":"E15","left":"R009","right":"R011","expected":"NO_MATCH"},
+    {"id":"E16","left":"R013","right":"R021","expected":"NO_MATCH"},
+    {"id":"E17","left":"R015","right":"R017","expected":"NO_MATCH"},
+    {"id":"E18","left":"R007","right":"R008","expected":"EXCEPTION"},
+    {"id":"E19","left":"R029","right":"R030","expected":"EXCEPTION"},
+    {"id":"E20","left":"R002","right":"R022","expected":"NO_MATCH"}
+  ]
+}

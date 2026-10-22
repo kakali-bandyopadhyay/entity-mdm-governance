@@ -1,0 +1,391 @@
+{
+  "label": "Synthetic critical-data-element catalogue and lineage examples; not a firm's glossary.",
+  "elements": [
+    {
+      "id": "CDE-ENTITY-KEY",
+      "name": "Investment entity registration key",
+      "definition": "Synthetic identifier used to distinguish a legal entity within its issuing jurisdiction.",
+      "domain": "Investment entity reference data",
+      "criticality": "HIGH",
+      "business_owner": "Investment data owner (synthetic role)",
+      "data_steward": "Entity steward A (synthetic role)",
+      "trusted_source": "Synthetic entity registry; only after issuer and jurisdiction validation",
+      "quality_rules": [
+        "DQ-C01",
+        "DQ-C03"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic entity registry",
+          "field": "registration_key",
+          "action": "Source value received"
+        },
+        {
+          "step": 2,
+          "system": "MDM intake staging",
+          "field": "registration_key_raw",
+          "action": "Trim whitespace; preserve original in source evidence"
+        },
+        {
+          "step": 3,
+          "system": "Entity mastering rules",
+          "field": "registration_key_normalized",
+          "action": "Normalize case and separator format; reject missing or conflicting jurisdiction"
+        },
+        {
+          "step": 4,
+          "system": "Golden entity record",
+          "field": "registration_key",
+          "action": "Publish only after steward review and maker-checker approval"
+        },
+        {
+          "step": 5,
+          "system": "Downstream reference-data feed",
+          "field": "entity_key",
+          "action": "Deliver approved key with master ID and lineage reference"
+        }
+      ],
+      "downstream_consumer": "Synthetic investment reference-data consumers"
+    },
+    {
+      "id": "CDE-LEGAL-NAME",
+      "name": "Legal entity name",
+      "definition": "Registered legal name for the entity, retaining source spelling and approved normalized search form separately.",
+      "domain": "Investment entity reference data",
+      "criticality": "HIGH",
+      "business_owner": "Investment data owner (synthetic role)",
+      "data_steward": "Entity steward B (synthetic role)",
+      "trusted_source": "Synthetic entity registry; fund administrator evidence may be used for review",
+      "quality_rules": [
+        "DQ-C05"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic entity registry / fund administrator",
+          "field": "legal_name",
+          "action": "Capture source value and source-record ID"
+        },
+        {
+          "step": 2,
+          "system": "MDM intake staging",
+          "field": "legal_name_raw",
+          "action": "Retain source string; create a separate normalized comparison value"
+        },
+        {
+          "step": 3,
+          "system": "Golden entity record",
+          "field": "legal_name",
+          "action": "Apply field precedence only after unresolved conflicts are reviewed"
+        },
+        {
+          "step": 4,
+          "system": "Downstream reference-data feed",
+          "field": "entity_legal_name",
+          "action": "Send selected value with source provenance"
+        }
+      ],
+      "downstream_consumer": "Synthetic investment reference-data consumers"
+    },
+    {
+      "id": "CDE-ENTITY-TYPE",
+      "name": "Legal entity type",
+      "definition": "Illustrative classification of an entity as a fund, issuer, manager or holding entity.",
+      "domain": "Investment entity reference data",
+      "criticality": "HIGH",
+      "business_owner": "Investment data owner (synthetic role)",
+      "data_steward": "Entity steward A (synthetic role)",
+      "trusted_source": "Synthetic entity registry",
+      "quality_rules": [
+        "DQ-C03"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic entity registry",
+          "field": "entity_type",
+          "action": "Receive typed source value"
+        },
+        {
+          "step": 2,
+          "system": "MDM validation",
+          "field": "entity_type",
+          "action": "Check allowed-value set and compare against all records sharing the key"
+        },
+        {
+          "step": 3,
+          "system": "Golden entity record",
+          "field": "entity_type",
+          "action": "Hold publication when same-key records disagree"
+        }
+      ]
+    },
+    {
+      "id": "CDE-JURISDICTION",
+      "name": "Legal jurisdiction",
+      "definition": "Two-letter jurisdiction code associated with the legal registration of the entity.",
+      "domain": "Investment entity reference data",
+      "criticality": "HIGH",
+      "business_owner": "Investment data owner (synthetic role)",
+      "data_steward": "Entity steward C (synthetic role)",
+      "trusted_source": "Synthetic entity registry",
+      "quality_rules": [
+        "DQ-C02",
+        "DQ-C03"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic entity registry",
+          "field": "jurisdiction",
+          "action": "Capture source code"
+        },
+        {
+          "step": 2,
+          "system": "MDM validation",
+          "field": "jurisdiction",
+          "action": "Validate against illustrative ISO-style code list and compare same-key records"
+        },
+        {
+          "step": 3,
+          "system": "Golden entity record",
+          "field": "jurisdiction",
+          "action": "Hold publication when missing, invalid or conflicting"
+        },
+        {
+          "step": 4,
+          "system": "Downstream reference-data feed",
+          "field": "entity_jurisdiction",
+          "action": "Deliver approved value with lineage reference"
+        }
+      ],
+      "downstream_consumer": "Synthetic investment reference-data consumers"
+    },
+    {
+      "id": "CDE-PARENT-KEY",
+      "name": "Parent legal entity key",
+      "definition": "Registration key for the immediate legal parent, when a parent relationship is known and evidenced.",
+      "domain": "Investment entity hierarchy",
+      "criticality": "HIGH",
+      "business_owner": "Investment data owner (synthetic role)",
+      "data_steward": "Hierarchy steward (synthetic role)",
+      "trusted_source": "Synthetic entity registry; portfolio-operations value is corroborating evidence only",
+      "quality_rules": [
+        "DQ-C04"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic entity registry / portfolio operations",
+          "field": "parent_key",
+          "action": "Capture source parent assertion and effective-date evidence"
+        },
+        {
+          "step": 2,
+          "system": "MDM hierarchy validation",
+          "field": "parent_key",
+          "action": "Check referenced key exists; detect unresolved same-entity parent conflicts"
+        },
+        {
+          "step": 3,
+          "system": "Steward review",
+          "field": "parent_key",
+          "action": "Require rationale and independent reviewer for changes"
+        },
+        {
+          "step": 4,
+          "system": "Golden entity hierarchy",
+          "field": "parent_entity_key",
+          "action": "Publish approved edge and retain prior value in audit history"
+        }
+      ],
+      "downstream_consumer": "Synthetic investment reference-data consumers"
+    },
+    {
+      "id": "CDE-W-RISK",
+      "name": "Client risk rating",
+      "definition": "Illustrative risk category assigned to a synthetic wealth client under a documented assessment.",
+      "domain": "Wealth client and account data",
+      "criticality": "HIGH",
+      "business_owner": "Wealth risk data owner (synthetic role)",
+      "data_steward": "Wealth steward A (synthetic role)",
+      "trusted_source": "Synthetic client risk assessment",
+      "quality_rules": [
+        "DQ-W01"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic risk assessment",
+          "field": "risk_rating",
+          "action": "Capture approved assessment value and effective date"
+        },
+        {
+          "step": 2,
+          "system": "Client data staging",
+          "field": "risk_rating_raw",
+          "action": "Validate presence and retain source reference"
+        },
+        {
+          "step": 3,
+          "system": "Governed wealth data product",
+          "field": "client_risk_rating",
+          "action": "Publish owner-approved value with lineage and quality status"
+        }
+      ],
+      "downstream_consumer": "Synthetic risk reporting and client servicing use cases",
+      "regulatory_tags": [
+        "illustrative risk reporting support"
+      ]
+    },
+    {
+      "id": "CDE-W-KYC",
+      "name": "KYC review status",
+      "definition": "Current state of the synthetic client due-diligence review.",
+      "domain": "Wealth client and account data",
+      "criticality": "HIGH",
+      "business_owner": "KYC data owner (synthetic role)",
+      "data_steward": "Wealth steward B (synthetic role)",
+      "trusted_source": "Synthetic KYC review register",
+      "quality_rules": [
+        "DQ-W02"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic KYC register",
+          "field": "review_status",
+          "action": "Capture status and review timestamp"
+        },
+        {
+          "step": 2,
+          "system": "KYC staging",
+          "field": "kyc_status",
+          "action": "Map approved source statuses to the illustrative controlled list"
+        },
+        {
+          "step": 3,
+          "system": "Governed wealth data product",
+          "field": "kyc_review_status",
+          "action": "Publish with source version and exception link"
+        }
+      ],
+      "downstream_consumer": "Synthetic client onboarding and monitoring use cases",
+      "regulatory_tags": [
+        "illustrative anti-money-laundering / KYC support"
+      ]
+    },
+    {
+      "id": "CDE-W-BOOKING-COUNTRY",
+      "name": "Account booking country",
+      "definition": "Country in which the synthetic account is booked for operational reporting.",
+      "domain": "Wealth account data",
+      "criticality": "HIGH",
+      "business_owner": "Wealth operations data owner (synthetic role)",
+      "data_steward": "Wealth steward A (synthetic role)",
+      "trusted_source": "Synthetic account platform",
+      "quality_rules": [
+        "DQ-W05"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic account platform",
+          "field": "booking_country",
+          "action": "Capture account booking location"
+        },
+        {
+          "step": 2,
+          "system": "Account staging",
+          "field": "booking_country_code",
+          "action": "Normalize to illustrative country value"
+        },
+        {
+          "step": 3,
+          "system": "Governed wealth data product",
+          "field": "booking_country",
+          "action": "Publish country value for country scorecard aggregation"
+        }
+      ],
+      "downstream_consumer": "Synthetic country-level governance scorecard",
+      "regulatory_tags": [
+        "illustrative country reporting support"
+      ]
+    },
+    {
+      "id": "CDE-W-ACCOUNT-STATUS",
+      "name": "Account status and identifier",
+      "definition": "Synthetic account identity and lifecycle state used to distinguish and operate account records.",
+      "domain": "Wealth account data",
+      "criticality": "HIGH",
+      "business_owner": "Account data owner (synthetic role)",
+      "data_steward": "Wealth steward C (synthetic role)",
+      "trusted_source": "Synthetic account platform",
+      "quality_rules": [
+        "DQ-W03"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic account platform",
+          "field": "account_id / account_status",
+          "action": "Capture source identifier and lifecycle state"
+        },
+        {
+          "step": 2,
+          "system": "Account staging",
+          "field": "account_id_normalized",
+          "action": "Normalize identifier and test uniqueness"
+        },
+        {
+          "step": 3,
+          "system": "Governed wealth data product",
+          "field": "account_status",
+          "action": "Publish only with unique account key and provenance"
+        }
+      ],
+      "downstream_consumer": "Synthetic account servicing and operations",
+      "regulatory_tags": [
+        "illustrative account operations support"
+      ]
+    },
+    {
+      "id": "CDE-W-HIERARCHY",
+      "name": "Client hierarchy reference",
+      "definition": "Optional parent-client reference connecting a synthetic account relationship to a known synthetic client.",
+      "domain": "Wealth client and account data",
+      "criticality": "MEDIUM",
+      "business_owner": "Client data owner (synthetic role)",
+      "data_steward": "Wealth steward B (synthetic role)",
+      "trusted_source": "Synthetic client master",
+      "quality_rules": [
+        "DQ-W04"
+      ],
+      "lineage": [
+        {
+          "step": 1,
+          "system": "Synthetic client master",
+          "field": "client_id / parent_client_id",
+          "action": "Capture client reference and relationship evidence"
+        },
+        {
+          "step": 2,
+          "system": "Client relationship validation",
+          "field": "parent_client_id",
+          "action": "Check every non-empty reference resolves to a known client"
+        },
+        {
+          "step": 3,
+          "system": "Governed wealth data product",
+          "field": "parent_client_id",
+          "action": "Publish validated relationship with lineage and owner sign-off"
+        }
+      ],
+      "downstream_consumer": "Synthetic household and relationship views",
+      "regulatory_tags": [
+        "illustrative client relationship support"
+      ]
+    }
+  ]
+}

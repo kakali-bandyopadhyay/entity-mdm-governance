@@ -1,0 +1,18 @@
+{
+  "label": "Illustrative multi-hub roles and continuity scenario; not a real staffing or business-continuity plan.",
+  "review_cadence": [
+    {"cadence":"Daily","forum":"Queue and blocker review","participants":["MDM operations lead","hub queue owners","data stewards"],"output":"Prioritized work, named next owner, due date and escalations"},
+    {"cadence":"Weekly","forum":"Data-quality and root-cause review","participants":["Data quality lead","domain owners","source integration lead"],"output":"Recurring exceptions, remediation actions and candidate product changes"},
+    {"cadence":"Monthly","forum":"Governance scorecard review","participants":["Business data owners","MDM lead","Technology / Product partners"],"output":"CDE quality, service trends, control evidence, risks and decisions for the next period"}
+  ],
+  "roles": [
+    {"role":"MDM service lead","primary_hub":"Hub A (synthetic)","backup_hub":"Hub B (synthetic)","coverage":"CROSS_TRAINED_IN_SCENARIO","responsibilities":"Prioritization, escalation, service scorecard and continuity coordination"},
+    {"role":"Entity stewardship lead","primary_hub":"Hub B (synthetic)","backup_hub":"Hub C (synthetic)","coverage":"SHADOW_COVERAGE_IN_SCENARIO","responsibilities":"Match review, survivorship exceptions, maker-checker coordination and data-owner follow-up"},
+    {"role":"Data quality and lineage lead","primary_hub":"Hub C (synthetic)","backup_hub":"Hub A (synthetic)","coverage":"CROSS_TRAINED_IN_SCENARIO","responsibilities":"Rule monitoring, CDE lineage evidence, exception analysis and monthly scorecard preparation"},
+    {"role":"Source integration lead","primary_hub":"Hub A (synthetic)","backup_hub":"Hub C (synthetic)","coverage":"DOCUMENTED_BACKUP_IN_SCENARIO","responsibilities":"Source-to-target mappings, feed exceptions, migration readiness and engineering backlog"}
+  ],
+  "continuity_scenarios": [
+    {"scenario":"Primary hub unavailable for one business day","trigger":"Queue review confirms primary hub cannot perform scheduled work.","fallback":"Backup hub accepts priority cases from a shared queue; use the source map, current exception log and handover notes; defer non-critical change releases until the accountable reviewer is available.","owner":"MDM service lead (synthetic role)","evidence":"Handover checklist, accepted case ownership, open-risk list and next review time.","validation":"TABLETOP_REQUIRED; no exercise is claimed as completed."},
+    {"scenario":"Source feed fails validation during a migration window","trigger":"Required-field or reconciliation threshold breached in a synthetic release check.","fallback":"Hold affected records, preserve source extracts and reconciliation output, notify source and technology owners, and resume only after a documented retest and approval.","owner":"Source integration lead (synthetic role)","evidence":"Run identifier, source-to-target mapping version, exception log, retest result and checker sign-off.","validation":"ILLUSTRATIVE_RUNBOOK; no production feed or migration is connected."}
+  ]
+}

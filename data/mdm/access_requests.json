@@ -1,0 +1,103 @@
+{
+  "label": "Synthetic purpose-limited access requests; no real identity or access enforcement.",
+  "requests": [
+    {
+      "id": "AR-001",
+      "requester": "Portfolio reporting requester (synthetic role)",
+      "consumer_team": "Portfolio reporting (synthetic)",
+      "purpose": "Country scorecard aggregation",
+      "requested_fields": [
+        "booking_country",
+        "account_status"
+      ],
+      "status": "APPROVED",
+      "decision_owner": "Data owner A (synthetic role)",
+      "scope_fields": [
+        "booking_country",
+        "account_status"
+      ],
+      "decision_reason": "Illustrative owner decision; purpose scope controls the released fields."
+    },
+    {
+      "id": "AR-002",
+      "requester": "Client onboarding requester (synthetic role)",
+      "consumer_team": "Client onboarding (synthetic)",
+      "purpose": "Review onboarding status",
+      "requested_fields": [
+        "kyc_review_status",
+        "client_risk_rating"
+      ],
+      "status": "PARTIAL",
+      "decision_owner": "Data owner B (synthetic role)",
+      "scope_fields": [
+        "kyc_review_status"
+      ],
+      "decision_reason": "Illustrative owner decision; purpose scope controls the released fields."
+    },
+    {
+      "id": "AR-003",
+      "requester": "Relationship analytics requester (synthetic role)",
+      "consumer_team": "Relationship analytics (synthetic)",
+      "purpose": "Build synthetic household view",
+      "requested_fields": [
+        "parent_client_id",
+        "account_id"
+      ],
+      "status": "APPROVED",
+      "decision_owner": "Data owner C (synthetic role)",
+      "scope_fields": [
+        "parent_client_id",
+        "account_id"
+      ],
+      "decision_reason": "Illustrative owner decision; purpose scope controls the released fields."
+    },
+    {
+      "id": "AR-004",
+      "requester": "Marketing insights requester (synthetic role)",
+      "consumer_team": "Marketing insights (synthetic)",
+      "purpose": "Target campaigns with sensitive risk details",
+      "requested_fields": [
+        "client_risk_rating",
+        "kyc_review_status"
+      ],
+      "status": "DENIED",
+      "decision_owner": "Data owner A (synthetic role)",
+      "scope_fields": [],
+      "decision_reason": "Illustrative owner decision; purpose scope controls the released fields."
+    },
+    {
+      "id": "AR-005",
+      "requester": "Operations control requester (synthetic role)",
+      "consumer_team": "Operations control (synthetic)",
+      "purpose": "Reconcile account status",
+      "requested_fields": [
+        "account_id",
+        "account_status"
+      ],
+      "status": "PENDING",
+      "decision_owner": "Data owner B (synthetic role)",
+      "scope_fields": [
+        "account_id",
+        "account_status"
+      ],
+      "decision_reason": "Illustrative owner decision; purpose scope controls the released fields."
+    },
+    {
+      "id": "AR-006",
+      "requester": "General research requester (synthetic role)",
+      "consumer_team": "General research (synthetic)",
+      "purpose": "Explore all client attributes",
+      "requested_fields": [
+        "client_risk_rating",
+        "kyc_review_status",
+        "parent_client_id"
+      ],
+      "status": "NARROWED",
+      "decision_owner": "Data owner C (synthetic role)",
+      "scope_fields": [
+        "kyc_review_status"
+      ],
+      "decision_reason": "Illustrative owner decision; purpose scope controls the released fields."
+    }
+  ]
+}
