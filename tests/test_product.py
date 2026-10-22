@@ -221,7 +221,7 @@ def test_dashboard_file_matches_fresh_render():
 def test_repo_has_no_real_firm_names_from_blocklist():
     root = Path(__file__).parents[1]
     text = "\n".join(p.read_text(encoding="utf-8") for p in root.rglob("*")
-                     if p.is_file() and ".git" not in p.parts and "__pycache__" not in p.parts
+                     if p.is_file() and not ({".git", "__pycache__", ".venv", "venv", "site-packages", ".pytest_cache", "out"} & set(p.parts))
                      and p.suffix.lower() in {".md", ".py", ".html", ".json", ".sql", ".toml"})
     firms = ["Black"+"Rock", "Al"+"addin", "E"+"QT", "Black"+"stone", "D. E. "+"Shaw",
              "Ci"+"ti", "Ci"+"ti"+"group", "Swiss "+"Re", "Delo"+"itte", "P"+"wC", "Inform"+"atica",
