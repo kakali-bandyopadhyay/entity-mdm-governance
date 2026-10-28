@@ -304,6 +304,8 @@ def as_html(report: dict) -> str:
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Synthetic MDM service operations scorecard and queue prototype">
+<link rel="icon" href="/assets/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <title>MDM Service Operations · Personal Prototype</title>
 <style>
 :root{{color-scheme:light dark;--bg:#f4f6fa;--panel:#fff;--ink:#1c2738;--muted:#58677d;--line:#d7dfeb;--accent:#2167a5;--warn:#9b5d05}}
